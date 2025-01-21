@@ -1,0 +1,131 @@
+.navbar {
+  width: 100%;
+  height: 100px;
+  background-color: #121619;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.navbar .leftSide {
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 100px;
+}
+
+.navbar .leftSide img {
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+.navbar .rightSide {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Navbar Linkleri - Şık ve Profesyonel */
+.navbar .rightSide a {
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Link altına hover efekti ile şık bir alt çizgi */
+.navbar .rightSide a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background: white;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+/* Hover olduğunda çizgi büyüyor */
+.navbar .rightSide a:hover::after {
+  width: 100%;
+}
+
+/* Hover olduğunda yazı rengi değişiyor */
+.navbar .rightSide a:hover {
+  color: #f39c12; /* Şık bir turuncu tonu */
+}
+
+.navbar .rightSide button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar .rightSide svg {
+  font-size: 40px;
+}
+
+/* Links gizli başlangıçta */
+.navbar .leftSide .hiddenLinks {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Hamburger menüsü tıklanınca linkler açılır */
+@media only screen and (max-width: 600px) {
+  .navbar .leftSide .hiddenLinks.open {
+    display: flex; /* Menü görünür */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #121619;
+    padding: 10px 0;
+    z-index: 10; /* Menü üstte */
+  }
+
+  .navbar .rightSide a {
+    display: none;
+  }
+
+  .navbar .rightSide button {
+    display: block;
+  }
+
+  .navbar .leftSide .hiddenLinks a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: #121619;
+  }
+
+  .navbar .leftSide .hiddenLinks a:hover {
+    background-color: #444;
+  }
+}
+
+/* Büyük ekranlarda linklerin arası */
+@media only screen and (min-width: 601px) {
+  .navbar .rightSide a {
+    margin: 0 20px;
+  }
+
+  .navbar .rightSide button {
+    display: none;
+  }
+}
